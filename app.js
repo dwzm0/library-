@@ -18,14 +18,9 @@ const StoredBooks = [
   }
 ];
 
-const books = StoredBooks;
-
-
 function UI() {}
 
 UI.prototype.addBookToList = function (book) {
-    
-
   const list = document.getElementById("book-list");
   const row = document.createElement("tr");
   row.innerHTML = `
@@ -34,16 +29,14 @@ UI.prototype.addBookToList = function (book) {
     <td><a href="" class="delete">X</a></td>
     `;
   list.appendChild(row);
-};
+}
 
-UI.prototype.displayBooks = function (book) {
-  this.addBookToList(book);
-  const render = new UI();
-  books.forEach((book) => render.addBookToList(book));
+UI.prototype.displayBooks = function () {
+  StoredBooks.forEach((book) => this.addBookToList(book));
 };
 
 const render = new UI();
-render.displayBooks(books);
+render.displayBooks(StoredBooks);
 
 UI.prototype.clearFields = function () {
   document.getElementById("title").value = "";
@@ -81,3 +74,5 @@ document.getElementById("book-list").addEventListener("click", function (e) {
 
   e.preventDefault();
 });
+
+

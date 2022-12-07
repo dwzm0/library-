@@ -1,8 +1,9 @@
-function Book(title, author) {
+class Book{
+  constructor(title, author){
   this.title = title;
   this.author = author;
+ }
 }
-
 const StoredBooks = [
   {
     title: "Bible",
@@ -18,7 +19,7 @@ const StoredBooks = [
   }
 ];
 
-function UI() {}
+class UI{}
 
 UI.prototype.addBookToList = function (book) {
   const list = document.getElementById("book-list");
